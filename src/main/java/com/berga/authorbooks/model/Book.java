@@ -1,18 +1,27 @@
 package com.berga.authorbooks.model;
 
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
 import javax.persistence.Table;
 
 @Entity
-@Table(name = "book")
-@NamedQueries({ @NamedQuery(name = "Book.findByName", query = "SELECT b FROM Book b WHERE b.name=:name"),
-		@NamedQuery(name = "Book.findAll", query = "SELECT b FROM Book b") })
+@Table(name = "books")
+@NamedQueries({ @NamedQuery(name = "Book.findByName", query = "SELECT b FROM Books b WHERE b.name=:name"),
+		@NamedQuery(name = "Book.findAll", query = "SELECT b FROM Books b") })
 public class Book {
 
+	@Id
+	@GeneratedValue
 	private Integer id;
 	private String name;
+	
+	@ManyToOne
+	@JoinColumn(name="AUTHOR_ID")
 	private Author author;
 
 	public Book() {
