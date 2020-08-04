@@ -56,9 +56,21 @@ public class AuthorBooks {
 		allBooks.forEach(System.out::println);
 		
 		// Find a book by name
+		Optional<Book> bookByName = bookRepository.findByName("Book 2");
+		System.out.println("Search a book by name: ");
+		bookByName.ifPresent(System.out::println);
+
 		// Find a book by name with named query
+		Optional<Book> bookByNamedQuery = bookRepository.findByNameNamedQuery("Book 3");
+		System.out.println("Search a book by named query: ");
+		bookByNamedQuery.ifPresent(System.out::println);
+
 		// Add a book to author 1
-		
+		Optional<Author> authorById = authorRepository.findById(1);
+		authorById.ifPresent(a -> {
+			a.addBook(new Book("Book 4"));
+			System.out.println("Saved author: " + authorRepository.save(a));
+		});
         // Close the entity manager and associated factory
         entityManager.close();
         entityManagerFactory.close();

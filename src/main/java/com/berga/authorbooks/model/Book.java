@@ -10,9 +10,9 @@ import javax.persistence.NamedQuery;
 import javax.persistence.Table;
 
 @Entity
-@Table(name = "books")
-@NamedQueries({ @NamedQuery(name = "Books.findByName", query = "SELECT b FROM Books b WHERE b.name=:name"),
-		@NamedQuery(name = "Books.findAll", query = "SELECT b FROM Books b") })
+@Table(name = "Book")
+@NamedQueries({ @NamedQuery(name = "Book.findByName", query = "SELECT b FROM Book b WHERE b.name=:name"),
+		@NamedQuery(name = "Book.findAll", query = "SELECT b FROM Book b") })
 public class Book {
 
 	@Id
