@@ -1,5 +1,6 @@
 package com.berga.authorbooks.model;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.persistence.CascadeType;
@@ -24,7 +25,7 @@ public class Author {
 	private Integer id;
 	private String name;
 	@OneToMany(mappedBy="author", cascade = CascadeType.ALL)
-	private List<Book> books;
+	private List<Book> books = new ArrayList<Book>();
 	
 	public Author() {
 		
