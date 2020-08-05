@@ -13,7 +13,7 @@ import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 @Entity
-@Table(name="Author")
+@Table(name="Authors")
 @NamedQueries({
 	@NamedQuery(name="Author.findByName",
 			query="SELECT a FROM Author a WHERE a.name=:name")
